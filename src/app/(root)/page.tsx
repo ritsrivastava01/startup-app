@@ -12,9 +12,9 @@ const Home = async ({
       _createdAt: new Date(),
       views: 55,
       author: { _id: 1, name: 'John Doe' },
-      description: 'Lorem ipsum dolor sit amet',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       image:
-        'https://unsplash.com/photos/a-person-holding-a-camera-in-their-hands-aEXbfkTGoqM',
+        'https://images.unsplash.com/photo-1719937050446-a121748d4ba0?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       category: 'Technology',
       title: 'Startup 1',
       _id: 1
