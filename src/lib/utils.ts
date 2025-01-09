@@ -12,3 +12,7 @@ export function formatDate(date: string) {
     year: 'numeric'
   });
 }
+
+export function delay(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}

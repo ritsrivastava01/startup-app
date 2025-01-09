@@ -1,3 +1,4 @@
+import { unstable_afterasafter } from 'next/server';
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
@@ -10,6 +11,14 @@ const nextConfig: NextConfig = {
         hostname: '*'
       }
     ]
+  },
+  experimental: {
+    ppr: 'incremental'
+  },
+  devIndicators: {
+    appIsrStatus: true,
+    buildActivity: true,
+    buildActivityPosition: 'bottom-right'
   }
 };
 
