@@ -8,7 +8,7 @@ import { UserStartups } from '@/components/UserStartups';
 import StartupSkeleton from '@/components/StartupSkeleton';
 const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;
-  const session = auth();
+  const session = await auth();
   const user = await client.fetch(AUTHOR_BY_ID_QUERY, { id });
   if (!user) return notFound();
   return (
@@ -20,8 +20,8 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
           </h3>
         </div>
         <Image
-          src={user.image}
-          alt={user.name}
+          src={user?.image || ''}
+          alt={user?.name || ''}
           width={220}
           height={220}
           className='profile_image bg-white'
