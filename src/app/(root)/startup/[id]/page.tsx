@@ -53,7 +53,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
               )}
               <div>
                 <p className='text-20-medium'>{post.author?.name}</p>
-                <p className='text-16-medium'>@{post.author?.userName}</p>
+                <p className='text-16-medium'>@{post.author?.username}</p>
               </div>
             </Link>
             <p className='category-tag'>{post.category}</p>

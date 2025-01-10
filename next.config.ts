@@ -1,4 +1,3 @@
-import { unstable_afterasafter } from 'next/server';
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
@@ -13,6 +12,7 @@ const nextConfig: NextConfig = {
     ]
   },
   experimental: {
+    after: true,
     ppr: 'incremental'
   },
   devIndicators: {

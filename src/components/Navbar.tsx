@@ -2,9 +2,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { auth, signIn, signOut } from '../../auth';
+import { BadgePlus, LogOut, Plus } from 'lucide-react';
+import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 
 export const NavBar = async () => {
   const session = await auth();
+
   return (
     <header className='px-5 py-3 bg-white shadow-sm font-work-sans'>
       <nav className='flex justify-between items-center'>
@@ -15,26 +18,29 @@ export const NavBar = async () => {
           {session?.user ? (
             <>
               <Link href={'/startup/create'}>
-                <span className='mr-5'>Create</span>
+                <span className='mr-5 hidden md:block'>Create</span>
+                <BadgePlus className='size-6 md:hidden' />
               </Link>
               <form
+                className='mt-1'
                 action={async () => {
                   'use server';
                   await signOut({ redirectTo: '/' });
                 }}>
-                <button type='submit'>Sign Out</button>
+                <button type='submit'>
+                  <span className='hidden md:block'>Sign Out</span>
+                  <LogOut className='size-6 md:hidden text-red-500' />
+                </button>
               </form>
 
-              <form
-                action={async () => {
-                  'use server';
-                  await signOut({ redirectTo: '/' });
-                }}>
-                <button type='submit'>Logout</button>
-              </form>
-
-              <Link href={`/user/${session?.user?.id}`}>
-                <span>{session.user.name}</span>
+              <Link href={`/user/${session?.id}`}>
+                <Avatar className='size-10'>
+                  <AvatarImage
+                    src={session?.user?.image || ''}
+                    alt={session?.user?.name || ''}
+                  />
+                  <AvatarFallback>AV</AvatarFallback>
+                </Avatar>
               </Link>
             </>
           ) : (

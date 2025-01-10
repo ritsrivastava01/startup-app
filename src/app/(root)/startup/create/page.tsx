@@ -1,7 +1,7 @@
-import { StartupForm } from '@/components/StartupForm';
 import React from 'react';
 import { auth } from '../../../../../auth';
 import { redirect } from 'next/navigation';
+import StartupForm from '@/components/StartupForm';
 
 const Page = async () => {
   const session = await auth();
